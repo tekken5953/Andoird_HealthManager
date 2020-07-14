@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/jniLibs/arm64-v8a/libDaumMapEngineApi.so" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/app/src/main/jniLibs/armeabi-v7a/libDaumMapEngineApi.so" charset="UTF-16" />
+    <file url="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/samsung-sm_g960n-223ad01c0a057ece/data/data/app.healthmanager/databases/Med.db" charset="ISO-8859-1" />
+  </component>
+</project>

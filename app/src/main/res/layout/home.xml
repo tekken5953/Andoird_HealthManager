@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_mainlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/titlelinear"
+        android:layout_centerVertical="true">
+        <TextView
+            android:id="@+id/appname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/greatvibe"
+            android:text="HealthManger"
+            android:textColor="#3a9987"
+            android:textSize="57sp" />
+
+        <ImageView
+            android:id="@+id/appname2"
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            android:layout_marginTop="-59dp"
+            android:src="@drawable/underline"
+            android:tint="#3a9987" />
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/foldingtx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/titlelinear"
+        android:text="@string/foldtx"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="-250dp"
+        android:visibility="gone"/>
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_below="@+id/foldingtx"
+        android:layout_above="@+id/layout_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:visibility="gone" />
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/line"
+        android:id="@+id/layout_btn">
+
+        <Button
+            android:id="@+id/medicien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/brush"
+            android:layout_marginBottom="5dp"
+            android:text="내 주변 약국"
+            android:background="@drawable/button1"
+            android:layout_marginStart="15dp"
+            android:layout_alignParentStart="true"
+            android:textColor="#f8f3eb"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mask"
+            android:fontFamily="@font/brush"
+            android:layout_marginBottom="5dp"
+            android:text="마스크판매처"
+            android:background="@drawable/button1"
+            android:layout_centerHorizontal="true"
+            android:textColor="#f8f3eb"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/webView_food_btn"
+            android:text="추천식단 보기!"
+            android:background="@drawable/button1"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/brush"
+            android:layout_marginEnd="15dp"
+            android:layout_alignParentEnd="true"
+            android:textColor="#f8f3eb"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+
+
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignTop="@+id/mainlinear"
+        android:background="#000000"/>
+
+    <LinearLayout
+        android:id="@+id/mainlinear"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true">
+
+        <ImageButton
+            android:id="@+id/btnhome"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#62bfad"
+            android:src="@drawable/bottom_menu_home"
+            android:text="Home" />
+
+        <ImageButton
+            android:id="@+id/btndetail"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#f8f3eb"
+            android:src="@drawable/bottom_menu_detail"
+            android:tint="#62bfad" />
+
+        <ImageButton
+            android:id="@+id/btncalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#f8f3eb"
+            android:src="@drawable/bottom_menu_calendar"
+            android:tint="#62bfad" />
+
+        <ImageButton
+            android:id="@+id/btnoption"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:adjustViewBounds="false"
+            android:background="#f8f3eb"
+            android:src="@drawable/setting"
+            android:tint="#62bfad" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="새로운 약 추가하기!"
+        android:textSize="30dp"
+        android:layout_marginLeft="50dp"
+        android:textColor="#3a9987"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:typeface="serif"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="약의 이름은 무엇인가요?"
+        android:textSize="15dp"
+        android:typeface="serif"
+        android:textColor="#000000"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="ex) 감기약"
+        android:id="@+id/etname"
+        android:textSize="14dp"
+        android:singleLine="true"
+        android:lines="1"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="약은 어디에 보관중인가요?"
+        android:textSize="15dp"
+        android:typeface="serif"
+        android:textColor="#000000"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="ex) 서재 첫번째 서랍 안"
+        android:singleLine="true"
+        android:lines="1"
+        android:textSize="14dp"
+        android:id="@+id/etwhere"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="하루에 몇 번 드세요?"
+        android:textSize="15dp"
+        android:layout_marginTop="20dp"
+        android:typeface="serif"
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:lines="1"
+        android:textSize="14dp"
+        android:id="@+id/ethowmany"
+        android:hint="ex) 1일 2회"
+        android:layout_marginLeft="20dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="추  가"
+            android:typeface="serif"
+            android:background="@drawable/button1"
+            android:textColor="#f8f3eb"
+            android:layout_marginRight="20dp"
+            android:id="@+id/okbtn"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="취  소"
+            android:textColor="#f8f3eb"
+            android:typeface="serif"
+            android:background="@drawable/button1"
+            android:layout_toRightOf="@+id/okbtn"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/canclebtn"/>
+    </RelativeLayout>
+
+</LinearLayout>
+
+

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="메모추가"
+        android:textSize="21sp"
+        android:typeface="serif"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/titletext"
+        android:textStyle="bold"
+        android:textColor="#3a9987"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:id="@+id/memoedit"
+        android:ems="10"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:gravity="top"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="메모할 내용을 입력해주세요"
+        android:inputType="textMultiLine"
+        android:layout_below="@+id/titletext"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/memoaddok"
+        android:layout_below="@+id/memoedit"
+        android:layout_marginLeft="65dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="#f8f3eb"
+        android:background="@drawable/button1"
+        android:text="추가" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/memoaddno"
+        android:layout_below="@+id/memoedit"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="#f8f3eb"
+        android:background="@drawable/button1"
+        android:layout_toRightOf="@+id/memoaddok"
+        android:text="취소"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OptionActivity">
+
+    <TextView
+        android:id="@+id/textoption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"
+        android:text="설정"
+        android:textColor="#3a9987"
+        android:textSize="25dp"
+        android:typeface="serif" />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/textoption"
+        android:layout_marginTop="10dp"
+        android:background="#d4d4d4"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/mainlinear"
+        android:layout_below="@+id/textoption"
+        android:layout_marginTop="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/option_version_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="20dp"
+                android:text="버전/개발자 정보"
+                android:textColor="#000000"
+                android:typeface="serif"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/versiontx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/option_version_tx"
+                android:text="버전 정보"
+                android:textSize="17sp"
+                android:typeface="serif" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="v 1 . 0 . 0."
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="15dp"
+                android:visibility="gone"
+                android:layout_below="@+id/versiontx"
+                android:id="@+id/version_code"
+                android:layout_marginLeft="15dp"
+                android:textSize="12sp"/>
+
+            <View
+                android:id="@+id/line7"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/version_code"
+                android:layout_marginTop="15dp"
+                android:background="#d4d4d4" />
+
+            <TextView
+                android:id="@+id/engineertx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/line7"
+                android:text="개발자 정보"
+                android:textSize="17sp"
+                android:typeface="serif" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="이재영  20141511\t\t\t\t\t이상명  20151668"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/engineertx"
+                android:id="@+id/engineer_code1"
+                android:layout_marginLeft="15dp"
+                android:textSize="12sp"/>
+
+            <View
+                android:id="@+id/line10"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/engineer_code1"
+                android:layout_marginTop="15dp"
+                android:background="#d4d4d4" />
+
+            <TextView
+                android:id="@+id/displaytx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_below="@+id/line10"
+                android:layout_marginTop="20dp"
+                android:text="화면"
+                android:textColor="#000000"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/themetx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/displaytx"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="테마"
+                android:textSize="17sp"
+                android:typeface="serif" />
+
+            <RadioGroup
+                android:id="@+id/theme_radiogroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/themetx"
+                android:layout_marginLeft="45dp"
+                android:layout_marginBottom="5dp"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/theme1_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"/>
+
+                <TextView
+                    android:id="@+id/theme1_tx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="테마1"
+                    android:textSize="12sp"
+                    android:typeface="serif"/>
+
+                <RadioButton
+                    android:id="@+id/theme2_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"/>
+
+                <TextView
+                    android:id="@+id/theme2_tx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="테마2"
+                    android:textSize="12sp"
+                    android:typeface="serif"/>
+            </RadioGroup>
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/theme_radiogroup"
+                android:layout_marginTop="20dp"
+                android:background="#d4d4d4"/>
+            <TextView
+                android:id="@+id/textsizetx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="글자 크기"
+                android:textSize="17sp"
+                android:typeface="serif"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textsizetx"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:id="@+id/textsize_radiogroup">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/smallsize_radio"
+                    android:layout_marginLeft="15dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="작게"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/midiumsize_radio"
+                    android:layout_marginLeft="40dp"
+                    android:checked="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="보통"
+                    android:layout_marginLeft="3dp"
+                    android:textSize="17sp"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bigsize_radio"
+                    android:layout_marginLeft="40dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="크게"
+                    android:layout_marginLeft="3dp"
+                    android:textSize="28sp"/>
+            </RadioGroup>
+
+            <View
+                android:id="@+id/line3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/textsize_radiogroup"
+                android:layout_marginTop="20dp"
+                android:background="#d4d4d4"/>
+
+            <TextView
+                android:id="@+id/option_alarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line3"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="30dp"
+                android:text="알림"
+                android:textColor="#000000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/volumetx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/option_alarm"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="소리"
+                android:textSize="17sp"
+                android:typeface="serif" />
+
+            <View
+                android:id="@+id/line4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/volumetx"
+                android:layout_marginTop="20dp"
+                android:background="#d4d4d4" />
+
+            <TextView
+                android:id="@+id/vibratetx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line4"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="진동"
+                android:textSize="17sp"
+                android:typeface="serif" />
+
+            <View
+                android:id="@+id/line5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/vibratetx"
+                android:layout_marginTop="20dp"
+                android:background="#d4d4d4" />
+
+            <TextView
+                android:id="@+id/option_alarm_onoff_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line5"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="알림 켜기/끄기"
+                android:textSize="17sp"
+                android:typeface="serif" />
+
+            <Switch
+                android:id="@+id/option_alarm_onoff_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line5"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:layout_toRightOf="@+id/option_alarm_onoff_tx"
+                android:checked="true" />
+
+            <View
+                android:id="@+id/line6"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/option_alarm_onoff_tx"
+                android:layout_marginTop="20dp"
+                android:background="#d4d4d4" />
+
+            <TextView
+                android:id="@+id/option_help_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line6"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:text="고객센터/도움말"
+                android:textColor="#000000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/usertx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/option_help_tx"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="고객센터"
+                android:layout_marginBottom="5dp"
+                android:textSize="17sp"
+                android:typeface="serif" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_call"
+                android:layout_below="@+id/usertx"
+                android:text="H.P : 010 - 4180 - 5953"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:typeface="serif"
+                android:visibility="gone"
+                android:textSize="12sp"/>
+
+            <View
+                android:id="@+id/line8"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/user_call"
+                android:layout_marginTop="15dp"
+                android:background="#d4d4d4" />
+
+            <TextView
+                android:id="@+id/helptx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line8"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="도움말"
+                android:textSize="17sp"
+                android:typeface="serif" />
+
+            <View
+                android:id="@+id/line9"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/helptx"
+                android:layout_marginTop="20dp"
+                android:background="#d4d4d4" />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/mainlinear"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true">
+
+        <ImageButton
+            android:id="@+id/btnhome"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#f8f3eb"
+            android:src="@drawable/bottom_menu_home"
+            android:text="Home"
+            android:tint="#62bfad" />
+
+        <ImageButton
+            android:id="@+id/btndetail"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#f8f3eb"
+            android:src="@drawable/bottom_menu_detail"
+            android:tint="#62bfad" />
+
+        <ImageButton
+            android:id="@+id/btncalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#f8f3eb"
+            android:src="@drawable/bottom_menu_calendar"
+            android:tint="#62bfad" />
+
+        <ImageButton
+            android:id="@+id/btnoption"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:adjustViewBounds="false"
+            android:background="#62bfad"
+            android:src="@drawable/setting" />
+    </LinearLayout>
+
+
+</RelativeLayout>
