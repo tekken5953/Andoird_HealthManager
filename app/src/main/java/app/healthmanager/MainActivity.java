@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     TextView foldtx, appname;
     Button webView_foodbtn, mask, medicien;
     LinearLayout titlelinear;
+    ObjectAnimator animation;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true); // 자바스크립트 허용
         webSettings.setLoadWithOverviewMode(true); // 컨텐츠가 웹뷰보다 클 경우 스크린 크기에 맞게 조정
         webView.setWebViewClient(new WebViewClient()); // 새창 뜨지 않게 하기위해서
+        animation = ObjectAnimator.ofFloat(titlelinear, "translationY", 0, -650);
 
         //페이지 로드 완료 후
         webView.setWebViewClient(new WebViewClient() {
@@ -78,39 +80,44 @@ public class MainActivity extends AppCompatActivity {
         mask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ObjectAnimator animation = ObjectAnimator.ofFloat(titlelinear, "translationY", 0, -650);
-                animation.setDuration(700);
-                animation.start();
-                foldtx.setText("-- > 지도 접기 < --");
-                webView.setVisibility(View.VISIBLE);
-                foldtx.setVisibility(View.VISIBLE);
-                webView.loadUrl("https://m.map.kakao.com/actions/searchView?q=공적마스크판매처&viewmap=true");
+                if (webView.getVisibility() == View.VISIBLE){
+                    animation.setDuration(0);
+                    webView.loadUrl("https://m.map.kakao.com/actions/searchView?q=공적마스크판매처&viewmap=true");
+                    webview_change();
+                }else{
+                    animation.setDuration(700);
+                    webview_change();
+                    webView.loadUrl("https://m.map.kakao.com/actions/searchView?q=공적마스크판매처&viewmap=true");
+                }
             }
         });
         medicien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ObjectAnimator animation = ObjectAnimator.ofFloat(titlelinear, "translationY", 0, -650);
-                animation.setDuration(700);
-                animation.start();
-                foldtx.setText("-- > 지도 접기 < --");
-                webView.setVisibility(View.VISIBLE);
-                foldtx.setVisibility(View.VISIBLE);
-                webView.loadUrl("https://m.map.kakao.com/actions/searchView?q=약국&viewmap=true");
+                if (webView.getVisibility() == View.VISIBLE){
+                    animation.setDuration(0);
+                    webView.loadUrl("https://m.map.kakao.com/actions/searchView?q=약국&viewmap=true");
+                    webview_change();
+                }else{
+                    animation.setDuration(700);
+                    webview_change();
+                    webView.loadUrl("https://m.map.kakao.com/actions/searchView?q=약국&viewmap=true");
+                }
             }
         });
 
         webView_foodbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    ObjectAnimator animation = ObjectAnimator.ofFloat(titlelinear, "translationY", 0,-650);
+                if (webView.getVisibility() == View.VISIBLE){
+                    animation.setDuration(0);
+                    webView.loadUrl("http://api.nongsaro.go.kr/sample/ajax/recomendDiet/recomendDietList.html");
+                    webview_change();
+                }else{
                     animation.setDuration(700);
-                    animation.start();
-
-                foldtx.setText("-- > 식단 접기 < --");
-                webView.setVisibility(View.VISIBLE);
-                foldtx.setVisibility(View.VISIBLE);
-                webView.loadUrl("http://api.nongsaro.go.kr/sample/ajax/recomendDiet/recomendDietList.html");
+                    webView.loadUrl("http://api.nongsaro.go.kr/sample/ajax/recomendDiet/recomendDietList.html");
+                    webview_change();
+                }
             }
         });
 
@@ -174,4 +181,12 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton("아니오", null)
                 .show();
     }
+
+    public void webview_change() {
+        foldtx.setText("-- > 페이지 숨기기 < --");
+        animation.start();
+        webView.setVisibility(View.VISIBLE);
+        foldtx.setVisibility(View.VISIBLE);
+    }
+
 }
