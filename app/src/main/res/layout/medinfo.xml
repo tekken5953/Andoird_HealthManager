@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MedInfoActivity"
-    android:background="#f8f3eb">
+    android:background="@color/backgournd">
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
         android:layout_below="@+id/imginfo"
         android:id="@+id/nametext"
         android:layout_marginTop="85dp"
-        android:textColor="#3a9987"
+        android:textColor="@color/view_dark"
         android:textSize="20dp"
         android:layout_marginLeft="120dp"/>
 
@@ -46,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="edit1"
-        android:textColor="#62bfad"
+        android:textColor="@color/view_light"
         android:id="@+id/edit1info"
         android:layout_toRightOf="@+id/nametext"
         android:layout_alignBaseline="@+id/nametext"
@@ -66,7 +66,7 @@
         android:layout_marginTop="30dp"
         android:textSize="20dp"
         android:layout_alignBaseline="@+id/edit2info"
-        android:textColor="#3a9987"
+        android:textColor="@color/view_dark"
         android:layout_marginLeft="120dp"/>
 
     <TextView
@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:text="edit2"
         android:id="@+id/edit2info"
-        android:textColor="#62bfad"
+        android:textColor="@color/view_light"
         android:layout_below="@+id/nametext"
         android:layout_centerVertical="true"
         android:layout_marginTop="30dp"
@@ -87,7 +87,7 @@
         android:text="복용 횟수 :  "
         android:textStyle="bold"
         android:id="@+id/howmanytext"
-        android:textColor="#3a9987"
+        android:textColor="@color/view_dark"
         android:layout_below="@+id/wheretext"
         android:layout_marginTop="30dp"
         android:textSize="20dp"
@@ -97,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/edit3info"
-        android:textColor="#62bfad"
+        android:textColor="@color/view_light"
         android:text="edit3"
         android:layout_toRightOf="@+id/howmanytext"
         android:layout_alignBaseline="@+id/howmanytext"

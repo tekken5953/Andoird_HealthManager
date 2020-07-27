@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="#f8f3eb">
+    android:background="@color/backgournd">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
             android:layout_height="132dp"
             android:layout_marginTop="-59dp"
             android:src="@drawable/underline"
-            android:tint="#3a9987" />
+            android:tint="@color/view_dark" />
     </LinearLayout>
 
 
@@ -127,7 +127,7 @@
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="#62bfad"
+            android:background="@color/view_light"
             android:src="@drawable/bottom_menu_home"
             android:text="Home" />
 
@@ -139,7 +139,7 @@
             android:layout_weight="1"
             android:background="#f8f3eb"
             android:src="@drawable/bottom_menu_detail"
-            android:tint="#62bfad" />
+            android:tint="@color/view_light" />
 
         <ImageButton
             android:id="@+id/btncalendar"
@@ -149,7 +149,7 @@
             android:layout_weight="1"
             android:background="#f8f3eb"
             android:src="@drawable/bottom_menu_calendar"
-            android:tint="#62bfad" />
+            android:tint="@color/view_light" />
 
         <ImageButton
             android:id="@+id/btnoption"
@@ -160,6 +160,6 @@
             android:adjustViewBounds="false"
             android:background="#f8f3eb"
             android:src="@drawable/setting"
-            android:tint="#62bfad" />
+            android:tint="@color/view_light" />
     </LinearLayout>
 </RelativeLayout>

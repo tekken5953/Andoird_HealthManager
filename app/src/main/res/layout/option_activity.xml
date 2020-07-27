@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OptionActivity"
-    android:background="#f8f3eb">
+    android:background="@color/backgournd">
 
     <TextView
         android:id="@+id/textoption"
@@ -14,7 +14,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="3dp"
         android:text="설정"
-        android:textColor="#3a9987"
+        android:textColor="@color/view_dark"
         android:textSize="25dp"
         android:typeface="serif" />
 
@@ -401,7 +401,7 @@
             android:background="#f8f3eb"
             android:src="@drawable/bottom_menu_home"
             android:text="Home"
-            android:tint="#62bfad" />
+            android:tint="@color/view_light" />
 
         <ImageButton
             android:id="@+id/btndetail"
@@ -411,7 +411,7 @@
             android:layout_weight="1"
             android:background="#f8f3eb"
             android:src="@drawable/bottom_menu_detail"
-            android:tint="#62bfad" />
+            android:tint="@color/view_light" />
 
         <ImageButton
             android:id="@+id/btncalendar"
@@ -421,7 +421,7 @@
             android:layout_weight="1"
             android:background="#f8f3eb"
             android:src="@drawable/bottom_menu_calendar"
-            android:tint="#62bfad" />
+            android:tint="@color/view_light" />
 
         <ImageButton
             android:id="@+id/btnoption"
@@ -430,7 +430,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:adjustViewBounds="false"
-            android:background="#62bfad"
+            android:background="@color/view_light"
             android:src="@drawable/setting" />
     </LinearLayout>
 

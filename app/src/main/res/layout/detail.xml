@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetailActivity"
-    android:background="#f8f3eb">
+    android:background="@color/backgournd">
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,7 +15,7 @@
         android:typeface="serif"
         android:textSize="25dp"
         android:layout_marginTop="8dp"
-        android:textColor="#3a9987"
+        android:textColor="@color/view_dark"
         android:layout_marginLeft="10dp"/>
 
     <View
@@ -55,7 +55,7 @@
             android:layout_weight="1"
             android:src="@drawable/bottom_menu_home"
             android:layout_gravity="center"
-            android:tint="#62bfad"
+            android:tint="@color/view_light"
             android:text="Home"
             android:background="#f8f3eb"
             android:id="@+id/btnhome"/>
@@ -66,7 +66,7 @@
             android:layout_weight="1"
             android:src="@drawable/bottom_menu_detail"
             android:layout_gravity="center"
-            android:background="#62bfad"
+            android:background="@color/view_light"
             android:id="@+id/btndetail"/>
 
         <ImageButton
@@ -76,7 +76,7 @@
             android:src="@drawable/bottom_menu_calendar"
             android:layout_gravity="center"
             android:background="#f8f3eb"
-            android:tint="#62bfad"
+            android:tint="@color/view_light"
             android:id="@+id/btncalendar"/>
 
         <ImageButton
@@ -87,7 +87,7 @@
             android:layout_weight="1"
             android:adjustViewBounds="false"
             android:background="#f8f3eb"
-            android:tint="#62bfad"
+            android:tint="@color/view_light"
             android:src="@drawable/setting" />
     </LinearLayout>
 
