@@ -3,7 +3,6 @@ package app.healthmanager;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
@@ -11,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.webkit.GeolocationPermissions;
 import android.webkit.WebChromeClient;
@@ -21,6 +21,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import static android.view.View.GONE;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     Button webView_foodbtn, mask, medicien;
     LinearLayout titlelinear;
     ObjectAnimator animation;
+    Boolean isExitFlag = false;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -80,11 +83,11 @@ public class MainActivity extends AppCompatActivity {
         mask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (webView.getVisibility() == View.VISIBLE){
+                if (webView.getVisibility() == View.VISIBLE) {
                     animation.setDuration(0);
                     webView.loadUrl("https://m.map.kakao.com/actions/searchView?q=공적마스크판매처&viewmap=true");
                     webview_change();
-                }else{
+                } else {
                     animation.setDuration(700);
                     webview_change();
                     webView.loadUrl("https://m.map.kakao.com/actions/searchView?q=공적마스크판매처&viewmap=true");
@@ -94,11 +97,11 @@ public class MainActivity extends AppCompatActivity {
         medicien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (webView.getVisibility() == View.VISIBLE){
+                if (webView.getVisibility() == View.VISIBLE) {
                     animation.setDuration(0);
                     webView.loadUrl("https://m.map.kakao.com/actions/searchView?q=약국&viewmap=true");
                     webview_change();
-                }else{
+                } else {
                     animation.setDuration(700);
                     webview_change();
                     webView.loadUrl("https://m.map.kakao.com/actions/searchView?q=약국&viewmap=true");
@@ -109,11 +112,11 @@ public class MainActivity extends AppCompatActivity {
         webView_foodbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (webView.getVisibility() == View.VISIBLE){
+                if (webView.getVisibility() == View.VISIBLE) {
                     animation.setDuration(0);
                     webView.loadUrl("http://api.nongsaro.go.kr/sample/ajax/recomendDiet/recomendDietList.html");
                     webview_change();
-                }else{
+                } else {
                     animation.setDuration(700);
                     webView.loadUrl("http://api.nongsaro.go.kr/sample/ajax/recomendDiet/recomendDietList.html");
                     webview_change();
@@ -167,19 +170,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("약 먹을 시간이약")
-                .setMessage("정말 종료 하시겠습니까?")
-                .setPositiveButton("예", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        ActivityCompat.finishAffinity(MainActivity.this);
-                    }
-
-                })
-                .setNegativeButton("아니오", null)
-                .show();
+        if(isExitFlag){
+            finish();
+        } else {
+            isExitFlag = true;
+            Toast.makeText(this, "뒤로가기를 한번더 누르시면 앱이 종료됩니다.",  Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    isExitFlag = false;
+                }
+            }, 2000);
+        }
     }
 
     public void webview_change() {
@@ -188,5 +190,4 @@ public class MainActivity extends AppCompatActivity {
         webView.setVisibility(View.VISIBLE);
         foldtx.setVisibility(View.VISIBLE);
     }
-
 }
