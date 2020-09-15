@@ -3,6 +3,8 @@ package app.healthmanager;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.FileProvider;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
@@ -19,12 +21,12 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -40,27 +42,33 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Objects;
 
 public class MedInfoActivity extends AppCompatActivity {
-    TextView edit1,edit2,edit3,spinnertx,sptxh,sptxm;
-    ImageButton alarm,backpress;
+    TextView edit1, edit2, edit3, spinnertx, sptxh, sptxm;
+    ImageButton alarm, backpress;
     ArrayList<LinearLayout> alltable = new ArrayList<LinearLayout>();
     ArrayList<EditText> arrayedith = new ArrayList<EditText>();
     ArrayList<EditText> arrayeditm = new ArrayList<EditText>();
-    String st1,st2,st3,st4 = null;
-    EditText edith,editm ;
+    String st1, st2, st3, st4 = null;
+    EditText edith, editm;
     LinearLayout spinnerRow;
     ImageView imginfo;
     Switch a_switch;
-    ArrayAdapter<String> spadh,spadm;
+    ArrayAdapter<String> spadh, spadm;
     private AlarmManager alarmManager;
     Integer count = 0;
     private static final int REQUEST_CODE = 0;
     public static final int REQUEST_CODE2 = 1;
+    private String imageFilePath;
+    private Uri photoUri;
 
     @Override
     protected void onResume() {
@@ -69,8 +77,7 @@ public class MedInfoActivity extends AppCompatActivity {
         try {
             Uri imguri = Uri.parse(getIntent().getExtras().getString("imgstr"));
             String imgstring = imguri.toString();
-            InputStream is;
-            is = getContentResolver().openInputStream(Uri.parse(imgstring));
+            InputStream is = getContentResolver().openInputStream(Uri.parse(imgstring));
             if (is != null) {
                 Bitmap bitmap = BitmapFactory.decodeStream(is);
                 is.close();
@@ -80,7 +87,7 @@ public class MedInfoActivity extends AppCompatActivity {
                 imginfo.setImageBitmap(resizedBmp);
                 imginfo.setColorFilter(Color.parseColor("#00ff0000"));
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             imginfo.setImageResource(R.drawable.galary);
             imginfo.setColorFilter(Color.parseColor("#3f48cc"));
@@ -90,7 +97,7 @@ public class MedInfoActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(this,DetailActivity.class);
+        Intent intent = new Intent(this, DetailActivity.class);
         overridePendingTransition(0, 0);
         startActivity(intent);
         finish();
@@ -119,22 +126,22 @@ public class MedInfoActivity extends AppCompatActivity {
         edit2.setText(getIntent().getExtras().getString("whereinfo"));
         edit3.setText(getIntent().getExtras().getString("howmanyinfo"));
         ArrayList<String> listh = new ArrayList<>();
-        for (int hour=1; hour<=24; hour++){
+        for (int hour = 1; hour <= 24; hour++) {
             listh.add(String.valueOf(hour));
         }
         ArrayList<String> listm = new ArrayList<>();
-        for (int min=0; min<=59; min++){
+        for (int min = 0; min <= 59; min++) {
             listm.add(String.valueOf(min));
         }
         spadh = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, listh);
         spadm = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, listm);
         LayoutInflater inflater = getLayoutInflater();
-        final View layout = inflater.inflate( R.layout.toast_layout, (ViewGroup) findViewById(R.id.toast_layout));
+        final View layout = inflater.inflate(R.layout.toast_layout, (ViewGroup) findViewById(R.id.toast_layout));
         final TextView text = layout.findViewById(R.id.text);
         final Toast toast = new Toast(MedInfoActivity.this);
         text.setTextSize(15);
         text.setTextColor(Color.BLACK);
-        toast.setGravity(Gravity.CENTER_VERTICAL,0,0);
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.setView(layout);
         onResume(); //이미지 설정
@@ -150,43 +157,43 @@ public class MedInfoActivity extends AppCompatActivity {
 
         //카메라 이미지 클릭시 갤러리로 이동
         imginfo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    final String[] items = {"갤러리에서 가져오기","카메라로 촬영하기"};
-                    new AlertDialog.Builder(MedInfoActivity.this)
-                            .setIcon(R.drawable.galary)
-                            .setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int item) {
-                                    dialog.dismiss();
-                                    if(item==0) {
-                                        //갤러리 호출
-                                        Intent intent = new Intent(Intent.ACTION_PICK);
-                                        intent.setType
-                                                (MediaStore.Images.Media.CONTENT_TYPE);
-                                        imginfo.setColorFilter(null);
-                                        startActivityForResult(intent, REQUEST_CODE);
-                                    } else if(item==1) {
-                                        //카메라로 찍기
-                                        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                                    }
+            @Override
+            public void onClick(View v) {
+                final String[] items = {"갤러리에서 가져오기", "카메라로 촬영하기"};
+                new AlertDialog.Builder(MedInfoActivity.this)
+                        .setIcon(R.drawable.galary)
+                        .setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int item) {
+                                dialog.dismiss();
+                                if (item == 0) {
+                                    //갤러리 호출
+                                    Intent intent = new Intent(Intent.ACTION_PICK);
+                                    intent.setType
+                                            (MediaStore.Images.Media.CONTENT_TYPE);
+                                    imginfo.setColorFilter(null);
+                                    startActivityForResult(intent, REQUEST_CODE);
+                                } else if (item == 1) {
+                                    //카메라로 찍기
+                                    sendTakePhotoIntent();
                                 }
-                            })
-                            .show(); onResume();
-                }
-            });
+                            }
+                        })
+                        .show();
+            }
+        });
 
         a_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (a_switch.isChecked()){
-                    if (count >= 1){
-                    }else{
+                if (a_switch.isChecked()) {
+                    if (count >= 1) {
+                    } else {
                         text.setText("설정 된 알림이 없습니다");
                         text.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                         toast.show();
                         setAlarmSetting();
                     }
-                }else{
+                } else {
                     NotificationManagerCompat.from(MedInfoActivity.this).cancel(1);
                     text.setText("해당 약의 알림을 삭제했습니다");
                     toast.show();
@@ -200,8 +207,9 @@ public class MedInfoActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                arrayedith.clear(); arrayeditm.clear();
-                if ( count >= 1 ){
+                arrayedith.clear();
+                arrayeditm.clear();
+                if (count >= 1) {
                     //이미 알림이 설정되어있을 때 알림삭제
                     NotificationManagerCompat.from(MedInfoActivity.this).cancel(1);
                     count = 0;
@@ -209,7 +217,10 @@ public class MedInfoActivity extends AppCompatActivity {
                     toast.show();
                 }
                 setAlarmSetting();
-            }});}
+            }
+        });
+    }
+
     //알림 설정
     public void NotificationSomethings() {
         Intent intent = new Intent(MedInfoActivity.this, AlarmReceiver.class);
@@ -222,10 +233,11 @@ public class MedInfoActivity extends AppCompatActivity {
         if (calendar.before(Calendar.getInstance())) {
             calendar.add(Calendar.DATE, 1);
             Toast.makeText(this, "내일 " + st3 + "시 " + st4 + "분 으로 알림설정완료", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 24 * 60 * 60 * 1000, pendingIntent);
         }
     }
+
     public void setAlarmSetting() {
         final AlertDialog builder = new AlertDialog.Builder(MedInfoActivity.this).create();
         View view = LayoutInflater.from(MedInfoActivity.this).inflate(R.layout.alertdialog_alarm, null, false);
@@ -300,15 +312,18 @@ public class MedInfoActivity extends AppCompatActivity {
                     spinnerRow.addView(editm);
                     spinnerRow.addView(sptxm);
                     linearLayout.addView(spinnerRow);
-                    linearLayout.setPadding(37,0,0,0);
+                    linearLayout.setPadding(37, 0, 0, 0);
                     //editText에 5이상의 숫자가 입력되었을 때
                     if (Integer.parseInt(st1) > 6) {
                         Toast.makeText(MedInfoActivity.this, "6이하의 숫자만 입력해주세요!", Toast.LENGTH_SHORT).show();
                         edit_count.setText(null);
                         linearLayout.removeAllViews();
                         alltable.clear();
-                        break; }
-                        } }});
+                        break;
+                    }
+                }
+            }
+        });
 
         okbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -342,15 +357,19 @@ public class MedInfoActivity extends AppCompatActivity {
                             NotificationSomethings();
                             Toast.makeText(MedInfoActivity.this, st3 + " 시 " + st4 + " 분에 " + count + " 번째 알림 발송", Toast.LENGTH_SHORT).show();
                             builder.dismiss();
-                        } } }
+                        }
+                    }
+                }
                 a_switch.setChecked(true); //알림 자동설정
-                }});
+            }
+        });
         nobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 builder.dismiss();
                 a_switch.setChecked(false);
-            }});
+            }
+        });
     }
 
     //갤러리 불러오기 함수
@@ -358,12 +377,12 @@ public class MedInfoActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        SQLiteDatabase db = MedDBHelper.getInstance(MedInfoActivity.this).getWritableDatabase();
         if (requestCode == REQUEST_CODE) {
-            SQLiteDatabase db = MedDBHelper.getInstance(MedInfoActivity.this).getWritableDatabase();
-            Uri img_uri = data.getData();
-            assert img_uri != null;
-            String img_string = img_uri.toString();
             try {
+                Uri img_uri = data.getData();
+                assert img_uri != null;
+                String img_string = img_uri.toString();
                 InputStream in = getContentResolver().openInputStream(data.getData());
                 Bitmap img = BitmapFactory.decodeStream(in);
                 //selected Image`s size is bigger than imginfo`s one
@@ -381,15 +400,64 @@ public class MedInfoActivity extends AppCompatActivity {
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 finish();
+                Toast.makeText(this, "사진 저장을 완료했습니다!", Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else if (resultCode == RESULT_CANCELED) {
             Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_SHORT).show();
             onResume();
-        } else if (requestCode == REQUEST_CODE2) {
+        } else if (requestCode == REQUEST_CODE2 && resultCode == RESULT_OK) {
             //카메라로 찍은 사진을 Bitmap으로 받아와서 교체하고 Uri로 parse 후 DB에 Update하는 코드
             //TODO
+            try {
+                Bitmap bitmap = BitmapFactory.decodeFile(imageFilePath);
+                imginfo.setImageBitmap(bitmap);
+                Intent intent = new Intent(MedInfoActivity.this, DetailActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+                Toast.makeText(this, "사진 저장을 완료했습니다!", Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private File createImageFile() throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "TEST_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,      /* prefix */
+                ".jpg",         /* suffix */
+                storageDir          /* directory */
+        );
+        imageFilePath = image.getAbsolutePath();
+        return image;
+    }
+
+    private void sendTakePhotoIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        SQLiteDatabase db = MedDBHelper.getInstance(MedInfoActivity.this).getWritableDatabase();
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+            }
+
+            if (photoFile != null) {
+                photoUri = FileProvider.getUriForFile(this, getPackageName(), photoFile);
+                String img_string = photoUri.toString();
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+                //선택된 이미지를 DB TABLE 에 update
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(MedContract.MedEntry.COLUMN_NAME_IMAGES, img_string);
+                db.update(MedContract.MedEntry.TABLE_NAME, contentValues, MedContract.MedEntry._ID + "=" + (Objects.requireNonNull(getIntent().getExtras())).getInt("position"), null);
+                startActivityForResult(takePictureIntent, REQUEST_CODE2);
+            }
         }
     }
 
@@ -399,6 +467,7 @@ public class MedInfoActivity extends AppCompatActivity {
             public void onPermissionGranted() {
                 // 권한 요청 성공
             }
+
             @Override
             public void onPermissionDenied(ArrayList<String> deniedPermissions) {
                 // 권한 요청 실패

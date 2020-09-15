@@ -6,12 +6,18 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ImageButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 
 public class OptionActivity extends AppCompatActivity {
 
 
     ImageButton btn1,btn2,btn3,btn4;
+    TextView versiontx, engineertx, usertx;
+    RadioGroup themetx, textsizetx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +31,24 @@ public class OptionActivity extends AppCompatActivity {
         btn2 = (ImageButton) findViewById(R.id.btndetail);
         btn3 = (ImageButton) findViewById(R.id.btncalendar);
         btn4 = (ImageButton) findViewById(R.id.btnoption);
+        versiontx = findViewById(R.id.version_code);
+        engineertx = findViewById(R.id.engineer_code1);
+        themetx = findViewById(R.id.theme_radiogroup);
+        usertx = findViewById(R.id.user_call);
+        textsizetx = findViewById(R.id.textsize_radiogroup);
+
 
         findViewById(R.id.versiontx).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (findViewById(R.id.version_code).getVisibility() == View.GONE){
-                    findViewById(R.id.version_code).setVisibility(View.VISIBLE);
+
+                if (versiontx.getVisibility() == View.GONE){
+                    Animation animation = new AlphaAnimation(0, 1);
+                    animation.setDuration(500);
+                    versiontx.setAnimation(animation);
+                    versiontx.setVisibility(View.VISIBLE);
                 }else{
-                    findViewById(R.id.version_code).setVisibility(View.GONE);
+                    versiontx.setVisibility(View.GONE);
                 }
             }
         });
@@ -40,10 +56,13 @@ public class OptionActivity extends AppCompatActivity {
         findViewById(R.id.engineertx).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (findViewById(R.id.engineer_code1).getVisibility() == View.GONE){
-                    findViewById(R.id.engineer_code1).setVisibility(View.VISIBLE);
+                if (engineertx.getVisibility() == View.GONE){
+                    Animation animation = new AlphaAnimation(0, 1);
+                    animation.setDuration(500);
+                    engineertx.setAnimation(animation);
+                    engineertx.setVisibility(View.VISIBLE);
                 }else{
-                    findViewById(R.id.engineer_code1).setVisibility(View.GONE);
+                    engineertx.setVisibility(View.GONE);
                 }
             }
         });
@@ -51,10 +70,13 @@ public class OptionActivity extends AppCompatActivity {
         findViewById(R.id.themetx).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (findViewById(R.id.theme_radiogroup).getVisibility() == View.GONE){
-                    findViewById(R.id.theme_radiogroup).setVisibility(View.VISIBLE);
+                if (themetx.getVisibility() == View.GONE){
+                    Animation animation = new AlphaAnimation(0, 1);
+                    animation.setDuration(500);
+                    themetx.setAnimation(animation);
+                    themetx.setVisibility(View.VISIBLE);
                 }else{
-                    findViewById(R.id.theme_radiogroup).setVisibility(View.GONE);
+                    themetx.setVisibility(View.GONE);
                 }
             }
         });
@@ -62,10 +84,13 @@ public class OptionActivity extends AppCompatActivity {
         findViewById(R.id.usertx).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (findViewById(R.id.user_call).getVisibility() == View.GONE){
-                    findViewById(R.id.user_call).setVisibility(View.VISIBLE);
+                if (usertx.getVisibility() == View.GONE){
+                    Animation animation = new AlphaAnimation(0, 1);
+                    animation.setDuration(500);
+                    usertx.setAnimation(animation);
+                    usertx.setVisibility(View.VISIBLE);
                 }else{
-                    findViewById(R.id.user_call).setVisibility(View.GONE);
+                    usertx.setVisibility(View.GONE);
                 }
             }
         });
@@ -84,10 +109,13 @@ public class OptionActivity extends AppCompatActivity {
         findViewById(R.id.textsizetx).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (findViewById(R.id.textsize_radiogroup).getVisibility() == View.GONE){
-                    findViewById(R.id.textsize_radiogroup).setVisibility(View.VISIBLE);
+                if (textsizetx.getVisibility() == View.GONE){
+                    Animation animation = new AlphaAnimation(0, 1);
+                    animation.setDuration(500);
+                    textsizetx.setAnimation(animation);
+                    textsizetx.setVisibility(View.VISIBLE);
                 }else{
-                    findViewById(R.id.textsize_radiogroup).setVisibility(View.GONE);
+                    textsizetx.setVisibility(View.GONE);
                 }
             }
         });

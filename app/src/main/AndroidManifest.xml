@@ -7,13 +7,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -21,7 +22,7 @@
         android:label="@string/app_name"
         android:process="android.process.media"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/notification_img"
         android:supportsRtl="true"
         android:theme="@style/AppTheme_Pastel"
         android:usesCleartextTraffic="true"
@@ -39,6 +40,16 @@
         </activity>
 
         <receiver android:name=".AlarmReceiver" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="app.healthmanager"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/xml" />
+        </provider>
 
     </application>
 
