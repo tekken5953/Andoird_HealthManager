@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:id="@+id/titlelinear"
-        android:layout_centerVertical="true">
+        android:layout_marginTop="90dp">
         <TextView
             android:id="@+id/appname"
             android:layout_width="wrap_content"
@@ -23,90 +23,81 @@
             android:fontFamily="@font/greatvibe"
             android:text="HealthManger"
             android:textColor="#3a9987"
-            android:textSize="57sp" />
+            android:textSize="60sp" />
 
         <ImageView
             android:id="@+id/appname2"
             android:layout_width="match_parent"
-            android:layout_height="132dp"
+            android:layout_height="140dp"
             android:layout_marginTop="-59dp"
             android:src="@drawable/underline"
             android:tint="#3a9987" />
     </LinearLayout>
 
-
-
-    <TextView
-        android:id="@+id/foldingtx"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/titlelinear"
-        android:text="@string/foldtx"
-        android:textColor="@android:color/black"
-        android:layout_marginTop="-250dp"
-        android:visibility="gone"/>
-    <WebView
-        android:id="@+id/webView"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_below="@+id/foldingtx"
-        android:layout_above="@+id/layout_btn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="5dp"
-        android:visibility="gone" />
-
-
-
-    <RelativeLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/line"
-        android:id="@+id/layout_btn">
+        android:layout_centerVertical="true"
+        android:gravity="center_horizontal"
+        android:id="@+id/layout_btn1">
 
         <Button
-            android:id="@+id/medicien"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/brush"
-            android:layout_marginBottom="5dp"
+            android:id="@+id/webView_medicien"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:fontFamily="@font/cookierunbold"
             android:text="내 주변 약국"
             android:background="@drawable/button1"
-            android:layout_marginStart="15dp"
-            android:layout_alignParentStart="true"
             android:textColor="#f8f3eb"
-            android:textSize="20sp" />
+            android:layout_marginEnd="15dp"
+            android:textSize="19sp" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/mask"
-            android:fontFamily="@font/brush"
-            android:layout_marginBottom="5dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/webView_mask"
+            android:fontFamily="@font/cookierunbold"
             android:text="마스크판매처"
             android:background="@drawable/button1"
-            android:layout_centerHorizontal="true"
             android:textColor="#f8f3eb"
-            android:textSize="20sp" />
+            android:layout_marginEnd="15dp"
+            android:textSize="19sp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_btn1"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:id="@+id/layout_btn2">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:id="@+id/webView_food_btn"
-            android:text="추천식단 보기!"
+            android:text="추천식단"
             android:background="@drawable/button1"
             android:layout_marginBottom="5dp"
-            android:fontFamily="@font/brush"
+            android:fontFamily="@font/cookierunbold"
             android:layout_marginEnd="15dp"
-            android:layout_alignParentEnd="true"
             android:textColor="#f8f3eb"
-            android:textSize="20sp"/>
+            android:textSize="19sp"/>
 
-    </RelativeLayout>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/webView_search"
+            android:text="약 검색"
+            android:background="@drawable/button1"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/cookierunbold"
+            android:layout_marginEnd="15dp"
+            android:textColor="#f8f3eb"
+            android:textSize="19sp"/>
 
-
-
+    </TableRow>
 
     <View
         android:id="@+id/line"

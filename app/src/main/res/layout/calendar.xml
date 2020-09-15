@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:text="캘린더"
         android:id="@+id/textoption"
-        android:typeface="serif"
         android:textSize="25dp"
+        android:fontFamily="@font/cookierunregular"
         android:layout_marginTop="8dp"
         android:textColor="#3a9987"
         android:layout_marginLeft="10dp"/>
@@ -72,7 +72,7 @@
         android:text="메모 추가/수정"
         android:textColor="#f8f3eb"
         android:textSize="14sp"
-        android:typeface="serif"
+        android:fontFamily="@font/cookierunregular"
         android:background="@drawable/button1"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/line"

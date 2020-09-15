@@ -14,6 +14,7 @@
         android:id="@+id/textoption"
         android:typeface="serif"
         android:textSize="25dp"
+        android:fontFamily="@font/cookierunregular"
         android:layout_marginTop="8dp"
         android:textColor="#3a9987"
         android:layout_marginLeft="10dp"/>

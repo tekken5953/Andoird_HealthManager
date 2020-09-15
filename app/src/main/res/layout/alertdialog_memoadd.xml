@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:text="메모추가"
         android:textSize="21sp"
-        android:typeface="serif"
+        android:fontFamily="@font/cookierunregular"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:id="@+id/titletext"
@@ -40,6 +40,7 @@
         android:layout_marginLeft="65dp"
         android:layout_marginBottom="30dp"
         android:textColor="#f8f3eb"
+        android:fontFamily="@font/cookierunregular"
         android:background="@drawable/button1"
         android:text="추가" />
 
@@ -51,6 +52,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginBottom="30dp"
         android:textColor="#f8f3eb"
+        android:fontFamily="@font/cookierunregular"
         android:background="@drawable/button1"
         android:layout_toRightOf="@+id/memoaddok"
         android:text="취소"/>
