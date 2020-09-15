@@ -77,7 +77,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:id="@+id/webView_food_btn"
-            android:text="추천식단"
+            android:text="추천 식단"
             android:background="@drawable/button1"
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/cookierunbold"
