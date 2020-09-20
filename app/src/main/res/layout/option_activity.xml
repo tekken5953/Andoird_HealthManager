@@ -11,8 +11,8 @@
         android:id="@+id/textoption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="5dp"
         android:text="설정"
         android:textColor="@color/view_dark"
         android:textSize="25dp"
@@ -41,22 +41,22 @@
                 android:id="@+id/option_version_tx"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="7dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:text="버전/개발자 정보"
                 android:textColor="#000000"
                 android:fontFamily="@font/cookierunregular"
-                android:textSize="25sp" />
+                android:textSize="23sp" />
 
             <TextView
                 android:id="@+id/versiontx"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="20dp"
                 android:layout_below="@+id/option_version_tx"
                 android:text="버전 정보"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:fontFamily="@font/cookierunregular" />
             <TextView
                 android:layout_width="wrap_content"
@@ -82,11 +82,11 @@
                 android:id="@+id/engineertx"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="20dp"
                 android:layout_below="@+id/line7"
                 android:text="개발자 정보"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:fontFamily="@font/cookierunregular" />
             <TextView
                 android:layout_width="wrap_content"
@@ -112,23 +112,23 @@
                 android:id="@+id/displaytx"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="7dp"
+                android:layout_marginLeft="10dp"
                 android:layout_below="@+id/line10"
                 android:layout_marginTop="20dp"
                 android:text="화면"
                 android:fontFamily="@font/cookierunregular"
                 android:textColor="#000000"
-                android:textSize="25sp"/>
+                android:textSize="23sp"/>
 
             <TextView
                 android:id="@+id/themetx"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/displaytx"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="15dp"
                 android:text="테마"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:fontFamily="@font/cookierunregular" />
 
             <RadioGroup
@@ -183,10 +183,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/line2"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="20dp"
                 android:text="글자 크기"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:fontFamily="@font/cookierunregular"/>
 
             <RadioGroup
@@ -219,7 +219,7 @@
                     android:layout_height="wrap_content"
                     android:text="보통"
                     android:layout_marginLeft="3dp"
-                    android:textSize="17sp"/>
+                    android:textSize="15sp"/>
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -247,22 +247,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/line3"
-                android:layout_marginLeft="7dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
                 android:text="알림"
                 android:fontFamily="@font/cookierunregular"
                 android:textColor="#000000"
-                android:textSize="25sp" />
+                android:textSize="23sp" />
 
             <TextView
                 android:id="@+id/volumetx"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/option_alarm"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="20dp"
                 android:text="소리"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:fontFamily="@font/cookierunregular" />
 
             <View
@@ -278,10 +278,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/line4"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="20dp"
                 android:text="진동"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:fontFamily="@font/cookierunregular" />
 
             <View
@@ -297,10 +297,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/line5"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="20dp"
                 android:text="알림 켜기/끄기"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:fontFamily="@font/cookierunregular" />
 
             <Switch
@@ -327,23 +327,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/line6"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="30dp"
                 android:text="고객센터/도움말"
                 android:fontFamily="@font/cookierunregular"
                 android:textColor="#000000"
-                android:textSize="25sp" />
+                android:textSize="23sp" />
 
             <TextView
                 android:id="@+id/usertx"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/option_help_tx"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="20dp"
                 android:text="고객센터"
                 android:layout_marginBottom="5dp"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:fontFamily="@font/cookierunregular" />
             <TextView
                 android:layout_width="wrap_content"
@@ -370,10 +370,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/line8"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="15dp"
                 android:text="도움말"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:fontFamily="@font/cookierunregular" />
 
             <View

@@ -30,83 +30,91 @@
         android:layout_below="@+id/imginfo"
         android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <TableRow
+        android:id="@+id/tr1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="약 이름 :  "
-        android:fontFamily="@font/cookierunregular"
-        android:layout_below="@+id/imginfo"
-        android:id="@+id/nametext"
-        android:layout_marginTop="85dp"
-        android:textColor="#3a9987"
-        android:textSize="20dp"
-        android:layout_marginLeft="120dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="edit1"
-        android:fontFamily="@font/cookierunregular"
-        android:textColor="#62bfad"
-        android:id="@+id/edit1info"
-        android:layout_toRightOf="@+id/nametext"
-        android:layout_alignBaseline="@+id/nametext"
         android:layout_below="@+id/imginfo"
         android:layout_marginTop="85dp"
-        android:textSize="20dp"/>
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="약 이름 :  "
+            android:fontFamily="@font/cookierunregular"
+            android:id="@+id/nametext"
+            android:textColor="#3a9987"
+            android:textSize="20dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="edit1"
+            android:fontFamily="@font/cookierunregular"
+            android:textColor="#62bfad"
+            android:id="@+id/edit1info"
+            android:layout_toRightOf="@+id/nametext"
+            android:layout_alignBaseline="@+id/nametext"
+            android:textSize="20dp"/>
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tr2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="보관 장소 :  "
-        android:textStyle="bold"
-        android:fontFamily="@font/cookierunregular"
-        android:id="@+id/wheretext"
-        android:layout_below="@+id/nametext"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/tr1"
         android:layout_marginTop="30dp"
-        android:textSize="20dp"
-        android:layout_alignBaseline="@+id/edit2info"
-        android:textColor="#3a9987"
-        android:layout_marginLeft="120dp"/>
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보관 장소 :  "
+            android:textStyle="bold"
+            android:fontFamily="@font/cookierunregular"
+            android:id="@+id/wheretext"
+            android:textSize="20dp"
+            android:layout_alignBaseline="@+id/edit2info"
+            android:textColor="#3a9987"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="edit2"
+            android:id="@+id/edit2info"
+            android:fontFamily="@font/cookierunregular"
+            android:textColor="#62bfad"
+            android:layout_toRightOf="@+id/wheretext"
+            android:textSize="20dp" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tr3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="edit2"
-        android:id="@+id/edit2info"
-        android:fontFamily="@font/cookierunregular"
-        android:textColor="#62bfad"
-        android:layout_below="@+id/nametext"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/tr2"
         android:layout_marginTop="30dp"
-        android:layout_toRightOf="@+id/wheretext"
-        android:textSize="20dp" />
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="복용 횟수 :  "
+            android:textStyle="bold"
+            android:id="@+id/howmanytext"
+            android:textColor="#3a9987"
+            android:textSize="20dp"
+            android:fontFamily="@font/cookierunregular" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="복용 횟수 :  "
-        android:textStyle="bold"
-        android:id="@+id/howmanytext"
-        android:textColor="#3a9987"
-        android:layout_below="@+id/wheretext"
-        android:layout_marginTop="30dp"
-        android:textSize="20dp"
-        android:fontFamily="@font/cookierunregular"
-        android:layout_marginLeft="120dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/edit3info"
-        android:textColor="#62bfad"
-        android:text="edit3"
-        android:fontFamily="@font/cookierunregular"
-        android:layout_toRightOf="@+id/howmanytext"
-        android:layout_alignBaseline="@+id/howmanytext"
-        android:layout_below="@+id/wheretext"
-        android:textSize="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit3info"
+            android:textColor="#62bfad"
+            android:text="edit3"
+            android:fontFamily="@font/cookierunregular"
+            android:layout_toRightOf="@+id/howmanytext"
+            android:layout_alignBaseline="@+id/howmanytext"
+            android:textSize="20dp"/>
+    </TableRow>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -115,7 +123,7 @@
         android:background="#f8f3eb"
         android:id="@+id/alarm"
         android:tint="#3f48cc"
-        android:layout_below="@+id/edit3info"
+        android:layout_below="@+id/tr3"
         android:layout_marginLeft="120dp"
         android:layout_marginTop="50dp"/>
 
@@ -132,7 +140,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/onoffswitch"
         android:layout_toEndOf="@+id/alarm"
-        android:layout_below="@+id/edit3info"
+        android:layout_below="@+id/tr3"
         android:layout_marginTop="70dp"
         android:layout_marginLeft="50dp"/>
 

@@ -35,29 +35,62 @@
     </LinearLayout>
 
     <TableRow
+        android:id="@+id/go_detail_tr"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/titlelinear"
+        android:background="#ffffff"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/go_detail_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내가 먹는 약을 확인하려면?"
+            android:textColor="@android:color/holo_purple"
+            android:textSize="18sp"
+            android:layout_marginLeft="20sp"
+            android:fontFamily="@font/cookierunregular"/>
+
+        <Button
+            android:id="@+id/go_detail_btn"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/button_round"
+            android:text="보러\n가기"
+            android:textSize="16sp"
+            android:fontFamily="@font/cookierunregular"
+            android:textColor="@color/view_dark"
+            android:layout_marginLeft="75dp"/>
+
+    </TableRow>
+
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/go_detail_tr"
         android:gravity="center_horizontal"
+        android:layout_marginTop="50dp"
         android:id="@+id/layout_btn1">
 
         <Button
             android:id="@+id/webView_medicien"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:fontFamily="@font/cookierunbold"
-            android:text="내 주변 약국"
-            android:background="@drawable/button1"
-            android:textColor="#f8f3eb"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_marginEnd="15dp"
+            android:background="@drawable/button1"
+            android:fontFamily="@font/cookierunbold"
+            android:text="내 주변\n약국"
+            android:textColor="#f8f3eb"
             android:textSize="19sp" />
 
         <Button
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:id="@+id/webView_mask"
             android:fontFamily="@font/cookierunbold"
-            android:text="마스크판매처"
+            android:text="마스크\n판매처"
             android:background="@drawable/button1"
             android:textColor="#f8f3eb"
             android:layout_marginEnd="15dp"
@@ -74,8 +107,8 @@
         android:id="@+id/layout_btn2">
 
         <Button
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:id="@+id/webView_food_btn"
             android:text="추천 식단"
             android:background="@drawable/button1"
@@ -86,8 +119,8 @@
             android:textSize="19sp"/>
 
         <Button
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:id="@+id/webView_search"
             android:text="약 검색"
             android:background="@drawable/button1"

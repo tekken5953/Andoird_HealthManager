@@ -32,8 +32,8 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
     ImageButton btn1, btn2, btn3, btn4;
-    TextView foldtx, appname;
-    Button webView_foodbtn, mask, medicien, search;
+    TextView appname;
+    Button webView_foodbtn, mask, medicien, search, go_detail;
     LinearLayout titlelinear;
 
     @Override
@@ -54,6 +54,17 @@ public class MainActivity extends AppCompatActivity {
         appname = (TextView) findViewById(R.id.appname);
         titlelinear = (LinearLayout) findViewById(R.id.titlelinear);
         webView_foodbtn = (Button) findViewById(R.id.webView_food_btn);
+        go_detail = (Button) findViewById(R.id.go_detail_btn);
+
+        go_detail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
 
         //마스크&약국 검색
         mask.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                alertDialog("http://dikmobile.health.kr/category01.do");
+                alertDialog("http://dikmobile.health.kr/main.do");
             }
         });
 
@@ -178,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("약 먹을 시간이약")
+                .setTitle("Health Manager")
                 .setMessage("정말 종료 하시겠습니까?")
                 .setPositiveButton("예", new DialogInterface.OnClickListener() {
                     @Override
