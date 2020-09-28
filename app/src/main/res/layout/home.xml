@@ -37,10 +37,10 @@
     <TableRow
         android:id="@+id/go_detail_tr"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="120dp"
         android:layout_below="@+id/titlelinear"
         android:background="#ffffff"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:gravity="center_vertical">
 
         <TextView
@@ -55,14 +55,14 @@
 
         <Button
             android:id="@+id/go_detail_btn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:background="@drawable/button_round"
             android:text="보러\n가기"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:fontFamily="@font/cookierunregular"
             android:textColor="@color/view_dark"
-            android:layout_marginLeft="75dp"/>
+            android:layout_marginLeft="70dp"/>
 
     </TableRow>
 
@@ -71,23 +71,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/go_detail_tr"
         android:gravity="center_horizontal"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
         android:id="@+id/layout_btn1">
 
         <Button
             android:id="@+id/webView_medicien"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_marginEnd="15dp"
+            android:layout_width="150dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/button1"
             android:fontFamily="@font/cookierunbold"
             android:text="내 주변\n약국"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
             android:textColor="#f8f3eb"
             android:textSize="19sp" />
 
         <Button
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_width="150dp"
+            android:layout_height="90dp"
             android:id="@+id/webView_mask"
             android:fontFamily="@font/cookierunbold"
             android:text="마스크\n판매처"
@@ -107,20 +109,20 @@
         android:id="@+id/layout_btn2">
 
         <Button
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_width="150dp"
+            android:layout_height="90dp"
             android:id="@+id/webView_food_btn"
             android:text="추천 식단"
             android:background="@drawable/button1"
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/cookierunbold"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="40dp"
             android:textColor="#f8f3eb"
             android:textSize="19sp"/>
 
         <Button
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_width="150dp"
+            android:layout_height="90dp"
             android:id="@+id/webView_search"
             android:text="약 검색"
             android:background="@drawable/button1"
